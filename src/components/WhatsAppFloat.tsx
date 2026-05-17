@@ -1,7 +1,13 @@
+import { useSiteSettings } from "@/hooks/use-site-data";
+
 export function WhatsAppFloat() {
+  const { data } = useSiteSettings();
+  if (!data?.whatsapp) return null;
+  const msg = encodeURIComponent(data.whatsapp_message || "Olá");
+  const href = `https://wa.me/${data.whatsapp.replace(/\D/g, "")}?text=${msg}`;
   return (
     <a
-      href="https://wa.me/5511400289220?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Mente%20Clara"
+      href={href}
       target="_blank"
       rel="noreferrer noopener"
       aria-label="Falar no WhatsApp"
