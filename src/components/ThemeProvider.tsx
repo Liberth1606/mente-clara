@@ -41,6 +41,32 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     root.style.setProperty("--ember", accent);
     root.style.setProperty("--background", bg);
     root.style.setProperty("--foreground", fg);
+
+    // Título da aba dinâmico
+    const title = data.seo_title?.trim() || data.company_name;
+    if (title) document.title = title;
+
+    // Meta description dinâmica
+    if (data.seo_description) {
+      let meta = document.querySelector('meta[name="description"]');
+      if (!meta) {
+        meta = document.createElement("meta");
+        meta.setAttribute("name", "description");
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute("content", data.seo_description);
+    }
+
+    // Favicon dinâmico
+    if (data.favicon_url) {
+      let icon = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+      if (!icon) {
+        icon = document.createElement("link");
+        icon.rel = "icon";
+        document.head.appendChild(icon);
+      }
+      icon.href = data.favicon_url;
+    }
   }, [data]);
 
   return <>{children}</>;

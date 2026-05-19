@@ -5,8 +5,6 @@ import { useSiteSettings } from "@/hooks/use-site-data";
 
 const links = [
   { to: "/", label: "Início" },
-  { to: "/sobre", label: "Sobre" },
-  { to: "/blog", label: "Blog" },
   { to: "/contato", label: "Contato" },
 ] as const;
 
