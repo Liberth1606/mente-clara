@@ -20,6 +20,9 @@ export type SiteSettings = {
   cta_label: string | null;
   seo_title: string | null;
   seo_description: string | null;
+  hero_title: string | null;
+  hero_description: string | null;
+  hero_image_url: string | null;
 };
 
 export function useSiteSettings() {
