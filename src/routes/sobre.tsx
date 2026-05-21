@@ -14,10 +14,10 @@ export const Route = createFileRoute("/sobre")({
 });
 
 const valores = [
-  { icon: Heart, titulo: "Acolhimento sem julgamento", texto: "Você chega como está. Aqui ninguém precisa parecer “bem” pra ser ouvido." },
-  { icon: Lock, titulo: "Sigilo absoluto", texto: "Tudo é protegido por código de ética e plataforma criptografada." },
-  { icon: Award, titulo: "Excelência clínica", texto: "Profissionais com formação contínua e supervisão clínica regular." },
-  { icon: ShieldCheck, titulo: "Ética antes de tudo", texto: "Cuidado se mede em vínculo, não em pacotes." },
+  { icon: Heart, titulo: "Escuta cuidadosa", texto: "Atendemos cada pessoa em seu próprio ritmo, sem julgamentos ou roteiros prontos." },
+  { icon: Lock, titulo: "Sigilo profissional", texto: "Todas as informações compartilhadas são protegidas pelo código de ética da psicologia." },
+  { icon: Award, titulo: "Profissionais registrados", texto: "Equipe formada por psicólogos com inscrição ativa no Conselho Regional de Psicologia." },
+  { icon: ShieldCheck, titulo: "Conduta ética", texto: "Trabalhamos dentro dos parâmetros técnicos e éticos da profissão, sem promessas de resultado." },
 ];
 
 function SobrePage() {
@@ -25,25 +25,26 @@ function SobrePage() {
   return (
     <Layout>
       <section className="mx-auto max-w-4xl px-5 py-20">
-        <p className="text-sm font-medium uppercase tracking-widest text-accent">Sobre {s?.company_name}</p>
-        <h1 className="mt-3 font-serif text-4xl md:text-5xl">A clínica que queríamos ter encontrado.</h1>
-        <p className="mt-6 text-lg text-muted-foreground">
-          {s?.company_name} nasceu da inquietação de quem enxergava pessoas adiando ajuda por medo, vergonha ou falta de acesso.
-          Criamos um espaço onde o primeiro contato pesa menos, o profissional certo está a poucos cliques e o sigilo é regra.
+        <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Sobre a clínica</p>
+        <h1 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">
+          Um espaço dedicado à saúde mental, com seriedade e discrição.
+        </h1>
+        <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+          A {s?.company_name} oferece atendimento psicológico para adultos, com foco em quadros como ansiedade, estresse,
+          dificuldades de relacionamento e momentos de transição. O acompanhamento é conduzido por profissionais com
+          formação clínica e supervisão regular.
         </p>
       </section>
 
-      <section className="bg-muted/40 py-20">
+      <section className="border-y border-border/60 bg-muted/40 py-20">
         <div className="mx-auto max-w-6xl px-5">
-          <h2 className="max-w-xl font-serif text-3xl md:text-4xl">Missão e valores</h2>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          <h2 className="max-w-xl font-serif text-3xl md:text-4xl">Princípios de trabalho</h2>
+          <div className="mt-10 grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2">
             {valores.map((v) => (
-              <div key={v.titulo} className="rounded-2xl border border-border bg-card p-6">
-                <div className="grid h-11 w-11 place-items-center rounded-full bg-primary/10 text-primary">
-                  <v.icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-5 font-serif text-xl">{v.titulo}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{v.texto}</p>
+              <div key={v.titulo} className="bg-card p-7">
+                <v.icon className="h-5 w-5 text-accent" />
+                <h3 className="mt-5 font-serif text-lg">{v.titulo}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.texto}</p>
               </div>
             ))}
           </div>
@@ -51,14 +52,15 @@ function SobrePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-20">
-        <h2 className="font-serif text-3xl md:text-4xl">Compromisso com a ética</h2>
-        <p className="mt-4 max-w-2xl text-muted-foreground">
-          Auditamos processos, exigimos supervisão e garantimos que nenhuma informação saia da relação terapêutica.
+        <h2 className="font-serif text-3xl md:text-4xl">Ética e responsabilidade</h2>
+        <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
+          Seguimos as diretrizes do Conselho Federal de Psicologia e a Lei Geral de Proteção de Dados. As informações
+          compartilhadas em consulta permanecem restritas à relação terapêutica.
         </p>
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          {["Ética e Sigilo", "LGPD compliant", "Plataforma criptografada", "Supervisão clínica"].map((t) => (
-            <span key={t} className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-muted-foreground">
-              <span className="h-2 w-2 rounded-full bg-primary" /> {t}
+        <div className="mt-10 flex flex-wrap gap-3">
+          {["Inscrição CRP ativa", "Sigilo profissional", "LGPD", "Supervisão clínica"].map((t) => (
+            <span key={t} className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" /> {t}
             </span>
           ))}
         </div>
