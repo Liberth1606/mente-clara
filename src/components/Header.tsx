@@ -9,7 +9,7 @@ const links = [
   { to: "/contato", label: "Contato" },
 ] as const;
 
-function waHref(s: { whatsapp?: string | null; whatsapp_message?: string | null } | undefined) {
+function waHref(s: { whatsapp?: string | null; whatsapp_message?: string | null } | null | undefined) {
   if (!s?.whatsapp) return null;
   const msg = encodeURIComponent(s.whatsapp_message || "Olá, gostaria de saber mais.");
   return `https://wa.me/${s.whatsapp.replace(/\D/g, "")}?text=${msg}`;

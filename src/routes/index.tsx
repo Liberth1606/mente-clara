@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function waLink(s?: { whatsapp?: string | null; whatsapp_message?: string | null }) {
+function waLink(s?: { whatsapp?: string | null; whatsapp_message?: string | null } | null) {
   if (!s?.whatsapp) return null;
   const msg = encodeURIComponent(s.whatsapp_message || "Olá, gostaria de saber mais.");
   return `https://wa.me/${s.whatsapp.replace(/\D/g, "")}?text=${msg}`;
