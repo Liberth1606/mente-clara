@@ -205,6 +205,9 @@ export type Database = {
           email: string | null
           favicon_url: string | null
           foreground_color: string
+          hero_description: string | null
+          hero_image_url: string | null
+          hero_title: string | null
           id: string
           logo_url: string | null
           phone: string | null
@@ -227,6 +230,9 @@ export type Database = {
           email?: string | null
           favicon_url?: string | null
           foreground_color?: string
+          hero_description?: string | null
+          hero_image_url?: string | null
+          hero_title?: string | null
           id?: string
           logo_url?: string | null
           phone?: string | null
@@ -249,6 +255,9 @@ export type Database = {
           email?: string | null
           favicon_url?: string | null
           foreground_color?: string
+          hero_description?: string | null
+          hero_image_url?: string | null
+          hero_title?: string | null
           id?: string
           logo_url?: string | null
           phone?: string | null
