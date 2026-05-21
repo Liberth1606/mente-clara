@@ -128,8 +128,12 @@ function SettingsPanel() {
 
   const fields: { k: keyof typeof form; label: string; type?: string }[] = [
     { k: "company_name", label: "Nome da empresa" },
-    { k: "tagline", label: "Slogan" },
+    { k: "tagline", label: "Slogan curto" },
+    { k: "hero_title", label: "Título principal (hero)" },
+    { k: "hero_description", label: "Descrição principal (hero)" },
+    { k: "hero_image_url", label: "Imagem principal / banner (URL)" },
     { k: "logo_url", label: "Logo (URL)" },
+    { k: "favicon_url", label: "Favicon (URL)" },
     { k: "phone", label: "Telefone" },
     { k: "whatsapp", label: "WhatsApp (somente números, com DDI)" },
     { k: "whatsapp_message", label: "Mensagem padrão do WhatsApp" },
@@ -137,19 +141,26 @@ function SettingsPanel() {
     { k: "address", label: "Endereço / Localização" },
     { k: "business_hours", label: "Horário de funcionamento" },
     { k: "cta_label", label: "Texto do botão principal" },
-    { k: "seo_title", label: "Título SEO" },
+    { k: "seo_title", label: "Título SEO (aba do navegador)" },
     { k: "seo_description", label: "Descrição SEO" },
   ];
 
   return (
     <div className="space-y-6">
       <div className="grid gap-4 md:grid-cols-2">
-        {fields.map(({ k, label }) => (
-          <label key={k} className="block">
-            <span className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-muted-foreground">{label}</span>
-            <input value={(form[k] as string) ?? ""} onChange={(e) => upd(k, e.target.value as never)} className="w-full rounded-xl border border-input bg-background px-4 py-2.5 text-sm outline-none focus:border-primary" />
-          </label>
-        ))}
+        {fields.map(({ k, label }) => {
+          const isLong = k === "hero_description" || k === "seo_description" || k === "hero_title";
+          return (
+            <label key={k} className={`block ${isLong ? "md:col-span-2" : ""}`}>
+              <span className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-muted-foreground">{label}</span>
+              {isLong ? (
+                <textarea rows={k === "hero_title" ? 2 : 3} value={(form[k] as string) ?? ""} onChange={(e) => upd(k, e.target.value as never)} className="w-full rounded-xl border border-input bg-background px-4 py-2.5 text-sm outline-none focus:border-primary" />
+              ) : (
+                <input value={(form[k] as string) ?? ""} onChange={(e) => upd(k, e.target.value as never)} className="w-full rounded-xl border border-input bg-background px-4 py-2.5 text-sm outline-none focus:border-primary" />
+              )}
+            </label>
+          );
+        })}
       </div>
 
       <div>
