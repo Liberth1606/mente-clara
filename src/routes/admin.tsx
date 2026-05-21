@@ -128,9 +128,8 @@ function SettingsPanel() {
 
   const fields: { k: keyof typeof form; label: string; type?: string }[] = [
     { k: "company_name", label: "Nome da empresa" },
-    { k: "tagline", label: "Subtítulo / Slogan" },
+    { k: "tagline", label: "Slogan" },
     { k: "logo_url", label: "Logo (URL)" },
-    { k: "favicon_url", label: "Favicon (URL)" },
     { k: "phone", label: "Telefone" },
     { k: "whatsapp", label: "WhatsApp (somente números, com DDI)" },
     { k: "whatsapp_message", label: "Mensagem padrão do WhatsApp" },
@@ -138,7 +137,7 @@ function SettingsPanel() {
     { k: "address", label: "Endereço / Localização" },
     { k: "business_hours", label: "Horário de funcionamento" },
     { k: "cta_label", label: "Texto do botão principal" },
-    { k: "seo_title", label: "Título da aba (SEO)" },
+    { k: "seo_title", label: "Título SEO" },
     { k: "seo_description", label: "Descrição SEO" },
   ];
 
