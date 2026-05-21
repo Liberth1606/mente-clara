@@ -27,11 +27,11 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <Link to="/" className="flex items-center gap-2.5">
           {s?.logo_url ? (
-            <img src={s.logo_url} alt={name} className="h-10 w-10 rounded-full object-cover" />
+            <img src={s.logo_url} alt={name} className="h-8 w-8 rounded-sm object-cover" />
           ) : (
-            <span className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground font-serif text-lg">{initial}</span>
+            <span className="grid h-8 w-8 place-items-center rounded-sm bg-primary text-primary-foreground font-serif text-base">{initial}</span>
           )}
-          <span className="font-serif text-xl tracking-tight">{name}</span>
+          <span className="font-serif text-lg tracking-tight">{name}</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -51,12 +51,12 @@ export function Header() {
               href={wa}
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-all hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
-              <MessageCircle className="h-4 w-4" /> {s?.cta_label ?? "Falar agora"}
+              <MessageCircle className="h-4 w-4" /> {s?.cta_label ?? "Agendar"}
             </a>
           ) : (
-            <Link to="/contato" className="rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-all hover:opacity-90">
+            <Link to="/contato" className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
               {s?.cta_label ?? "Agendar"}
             </Link>
           )}

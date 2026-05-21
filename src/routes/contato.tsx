@@ -31,9 +31,9 @@ function ContatoPage() {
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="grid gap-12 md:grid-cols-2">
           <div>
-            <p className="text-sm font-medium uppercase tracking-widest text-accent">Vamos conversar</p>
-            <h1 className="mt-3 font-serif text-4xl md:text-5xl">Estamos prontos pra te ouvir.</h1>
-            <p className="mt-4 text-muted-foreground">Pode mandar mensagem, ligar ou chamar no WhatsApp. Nada do que você compartilhar sai daqui.</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Contato</p>
+            <h1 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">Entre em contato com a clínica.</h1>
+            <p className="mt-4 leading-relaxed text-muted-foreground">Para agendamento, dúvidas sobre modalidades ou valores, escolha o canal de sua preferência. Sua mensagem é tratada com sigilo profissional.</p>
             <div className="mt-8 space-y-4">
               {s?.phone && (
                 <a href={`tel:${s.phone.replace(/\D/g, "")}`} className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5">
